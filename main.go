@@ -7,12 +7,12 @@ import (
 	"os"
 
 	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option" // for option functions
 )
 
 func main() {
-	client := anthropic.NewClient(client := anthropic.NewClient(
-																	 option.WithAPIKey(os.Getenv("ANTHROPIC_KEY")),
-															 ))
+	client := anthropic.NewClient( option.WithAPIKey(os.Getenv("ANTHROPIC_KEY")),
+															 )
 	
 	scanner := bufio.NewScanner(os.Stdin)
 	getUserMessage := func() (string, bool) {
